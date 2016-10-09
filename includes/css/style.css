@@ -1,0 +1,34 @@
+#header{
+	width: 100%;
+	height:140px;
+}
+
+#logo {
+	/*margin-top: 23px;
+	margin-left:20px;*/
+	float:left;
+	position:relative;
+	/*height:70px;*/
+	font-size:23px;
+}
+
+#cart_summary{
+	margin-top: 36px;
+	float:right;
+	position:relative;
+	height:70px;
+	width:360px;
+	text-align:right;
+	line-height:2.4em;
+}
+
+#add_to_cart_box{
+	text-align:center;
+	width:300px;
+	float:right;
+	position:relative;
+	background-color:silver;
+	left:-35px;
+	padding:12px;
+	border-radius:7px;
+}

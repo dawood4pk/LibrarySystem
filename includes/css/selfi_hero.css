@@ -1,0 +1,239 @@
+@charset "utf-8";
+/* CSS Document */
+
+		body
+		{
+			background:url(../media/doraemon/selfi_hero/bg.jpg);
+			background-repeat:no-repeat;
+			background-size:100%;
+			font-family:Arial, Helvetica, sans-serif;
+		}
+		.selfi_top_border
+		{
+			border:5px solid #ed1c24;
+			width:100%;
+			margin-bottom:3px;
+		}
+		#myCarousel
+		{
+			width:100%;
+		}
+		.container-fluid, .row
+		{
+			margin:0px;
+			padding:0px;
+		}
+		.carousel-inner img
+		{
+			width:100%;
+		}
+		.selfi_carousel_bottom_border
+		{
+			margin-top:5px;
+			border:3px solid #1e91cc;
+		}
+		.selfi_hero_desc h3
+		{
+			font-size:27px;
+			color: #1e91cc;
+			font-weight:bold;
+		}
+		.selfi_hero_desc
+		{
+			margin-left: 14%;
+			margin-right: 12%;
+		}
+		.selfi_hero_desc p
+		{
+			font-size:14px;
+			text-align:justify;
+		}
+		form
+		{
+			width:60%;
+			float:left;
+		}
+		input
+		{
+			width:100%;
+		}
+		table
+		{
+			width: 100%;
+		}
+		.selfi_hero_form label
+		{
+			display:table-cell;
+		}
+		.selfi_hero_form [text]
+		{
+			display:table-cell;
+		}
+		table h2
+		{
+			font-size:24px;
+			font-weight:bold;
+		}
+		.selfi_hero_form img
+		{
+			width:58%;
+			border:1px solid;
+		}
+		.selfi_hero_form input
+		{
+			width:100%;
+			margin-left:20px;
+		}
+		.captcha
+		{
+			margin-left:0px;
+			margin-top:10px;
+			width:50%;
+		}
+		button
+		{
+			background-color: #1e91cc;
+			border:none;
+			margin-top:10px;
+			font-size:14px;
+			color: #fff;
+			width: 65px;
+			margin-right:5px;
+		}
+		.selfi_bottom-top_border
+		{
+			border:3px solid #1e91cc;
+		}
+		.selfi_bottom_border
+		{
+			margin-top:5px;
+			border:25px solid #1e91cc;
+			margin-bottom:1px;
+		}
+		.selfi_hero_chars
+		{
+			float: right;
+			margin-top: 196px;
+			width: 40%;
+		}
+		.selfi_hero_chars img
+		{
+			float:right;
+		}
+		.btn 
+		{
+			padding: 6px 12px;
+			vertical-align: middle;
+			cursor: pointer;
+			border-radius: 4px;
+			background-color: #1e91cc;
+			color: #fff;
+			font-size: 10px;
+			margin-top: 7px;
+			
+		}
+		input[type="submit"] {
+			cursor: pointer;
+			width: 67px;
+			background-color: #1e91cc;
+			border: none;
+			margin-top: 10px;
+			font-size: 14px;
+			color: #fff;
+			width: 80px;
+			margin-right: 5px;
+			border-radius:2px;
+			height:30px;
+		}
+		table img {
+			vertical-align: middle;
+			border: 1px solid;
+			width: 50%;
+			margin-bottom: 10px;
+		}
+		.btn: hover
+		{
+			color:#fff;
+		}
+		.select_button
+		{
+			color: #fff;
+			background-color: #1e91cc;
+			border: none;
+			width: 78px;
+			height: 32px;
+			border-radius: 4px;
+		}
+		#filename
+		{
+			width: 65%;
+			height: 32px;
+			margin-left: -4px;
+		}
+		#browse
+		{
+			display:none;
+		}
+		label
+		{
+			width: 127px;
+		}
+		@media only screen and (max-width:767px)
+		{
+			.select_button {
+				color: #fff;
+				background-color: #1e91cc;
+				border: none;
+				width: 58px;
+				height: 27px;
+				border-radius: 4px;
+				font-size: 10px;
+			}
+			#filename {
+				width: 46%;
+				height: 29px;
+				margin-left: -4px;
+				margin-top: 1px;
+			}
+			.selfi_hero_form {
+				width: 100%;
+				float: left;
+			}
+			.selfi_hero_form input {
+				width: 100%;
+			}
+			.selfi_hero_form input {
+				width: 100%;
+				margin-left: 0px !important;
+			}
+			.selfi_hero_desc h3 {
+				font-size: 19px;
+				color: #1e91cc;
+				font-weight: bold;
+			}
+			
+			.selfi_bottom-top_border {
+				border: 3px solid #1e91cc;
+				margin-top: 40px;
+			}
+			.selfi_hero_form img {
+				width: 100%;
+				border: 1px solid;
+			}
+			.captcha {
+				margin-left: 0px;
+				margin-top: 10px;
+				width: 100%;
+			}
+			form
+			{
+				width:100%;
+			}
+			table img {
+				vertical-align: middle;
+				border: 1px solid;
+				width: 100%;
+				margin-bottom: 10px;
+			}
+		}
+
