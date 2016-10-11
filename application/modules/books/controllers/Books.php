@@ -10,23 +10,26 @@
 
 		function search(){
 
-			$data['book_title'] = $this->input->get('book_title', TRUE);
-			$data['book_author'] = $this->input->get('book_author', TRUE);
-			$data['book_published_year'] = $this->input->get('book_published_year', TRUE);
+			$data['book_title'] = trim( strip_tags ( $this->input->get('book_title', TRUE) ) );
+			$data['book_author'] = trim( strip_tags ( $this->input->get('book_author', TRUE) ) );
+			$data['book_published_year'] = trim( strip_tags ( $this->input->get('book_published_year', TRUE) ) );
+
+			$Query_String = "?book_title=".$data['book_title']."&book_author=".$data['book_author']."&book_published_year=".$data['book_published_year'];
 
 			/*$array = array('id' => $id);
 			$book = $this->get_where_custom_array( $array, 'book_title' );*/
 
 			$limit = 10;
-			$config['enable_query_strings'] = TRUE;
-			$config['uri_segment']  =   3;
+			$config['page_query_string'] = TRUE;
+			//$config['uri_segment']  =   3;
 			$config['num_links']    =   2;
 			//$config['first_link']   =   '<<';
 			//$config['last_link']    =   '>>';
 			$config['first_link']   =   'First';
 			$config['last_link']    =   'Last';
-			$config['base_url']     =   base_url() . 'books/search';
-			$config['total_rows']   =  $this->count_all();
+			$config['base_url']     =   base_url() . 'books/search'.$Query_String;
+			//$config['base_url']     =   current_url();
+			$config['total_rows']   =  $this->count_search_book($data);;
 			$config['per_page']     =   $limit;
 			////////////////
 			////////////////
@@ -56,13 +59,18 @@
 
 			////////////////
 			////////////////
+			$offset = trim( strip_tags ( $this->input->get('per_page', TRUE) ) );
+					if( $offset == "" )
+						$offset=0;
 
-
-			$offset = trim( strip_tags ( $this->uri->segment(3) ) );
-			if( $offset == "" )
-				$offset=0;
 			$this->pagination->initialize( $config );
-			$data['query'] = $this->search_book ( $data );
+			//////////////////////////////////////////////////
+			//////////////////////////////////////////////////
+			//$mysql_query = "SELECT * FROM books WHERE book_title like '%{$data['book_title']}%' limit $limit offset $offset";
+			//$data['query'] = $this->_custom_query($mysql_query);
+			$data['query'] = $this->search_book ( $limit, $offset, $data );
+			//////////////////////////////////////////////////
+			//////////////////////////////////////////////////
 			//$data['query'] = $this->get_with_limit ( $limit, $offset, 'book_title' );
 			$data["paging_links"] = $this->pagination->create_links();			
 			//////////////////////////////////////////////////////
@@ -129,6 +137,12 @@
 		function count_all() {
 			$this->load->model('mdl_books');
 			$query = $this->mdl_books->count_all();
+			return $query;
+		}
+
+		function count_search_book($search_term) {
+			$this->load->model('mdl_books');
+			$query = $this->mdl_books->count_search_book($search_term);
 			return $query;
 		}
 
@@ -289,9 +303,9 @@
 
 		////////////////////////////////////////////
 		////////////////////////////////////////////
-		function search_book($search_term) {
+		function search_book($limit, $offset, $search_term) {
 			$this->load->model('mdl_books');
-			$query = $this->mdl_books->search_book($search_term);
+			$query = $this->mdl_books->search_book($limit, $offset, $search_term);
 			return $query;
 		}
 

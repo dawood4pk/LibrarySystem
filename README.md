@@ -38,4 +38,4 @@ Client Panel:
   1.2.2 The result should show the book details along with the rack name
 
 #Current Status:
-Currently the Client's Books search part is half completed.
+Completed.
