@@ -25,6 +25,18 @@
 				return FALSE;
 			}
 		}
+		function book_check($book_id){
+			$table = $this->get_table();
+			$this->db->where('book_id', $book_id);
+			$query=$this->db->get($table);
+			$num_rows = $query->num_rows();
+
+			if ( $num_rows > 0 ){
+				return TRUE;
+			} else {
+				return FALSE;
+			}
+		}
 		////////////////////////////////////////////
 		////////////////////////////////////////////
 

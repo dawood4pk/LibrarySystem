@@ -79,7 +79,7 @@
 			if ( $submit == "Submit" ){
 
 					$this->load->library('form_validation');
-					$this->form_validation->set_rules('rack_id', 'Rack', 'required|xss_clean|callback_rack_check|callback_is_rack_available');
+					$this->form_validation->set_rules('rack_id', 'Rack', 'required|xss_clean|callback_rack_check|callback_is_rack_available|callback_book_check');
 					if($this->form_validation->run($this) == TRUE)
 					{
 						$data['book_id'] = $book_id;
@@ -124,6 +124,23 @@
 			if ($rack_count >= $rack_limit)
 			{
 				$this->form_validation->set_message('is_rack_available', 'Selected rack is full.');
+				return FALSE;
+			}
+			else
+			{
+				return TRUE;
+			}
+		}
+
+		function book_check($rack_id){
+			$book_id = trim( strip_tags ( $this->uri->segment(3) ) );
+
+			$this->load->model('mdl_book_rack_assign');
+			$result = $this->mdl_book_rack_assign->book_check($book_id);
+
+			if ($result == TRUE)
+			{
+				$this->form_validation->set_message('book_check', 'Selected book already assigned to the the rack.');
 				return FALSE;
 			}
 			else
